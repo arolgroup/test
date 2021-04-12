@@ -45,18 +45,19 @@ jobs:
           ps axf
       - name: Create big file
         run: |
+          dd if=/dev/urandom of=smallfile.dat bs=1M count=1
           dd if=/dev/urandom of=bigfile.dat bs=1M count=256
           ls -la
-          md5sum bigfile.dat
+          md5sum *.dat
       - name: Check archive
         run: |
           ls -la
-          md5sum bigfile.dat        
+          md5sum *.dat        
       - name: Upload archive to dropbox
         uses: deka0106/upload-to-dropbox@v2
         with:
           dropbox_access_token: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
-          src: bigfile.dat
+          src: smallfile.dat
           dest: .
           mode: add
           autorename: true
