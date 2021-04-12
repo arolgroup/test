@@ -36,11 +36,13 @@ jobs:
     steps:
       - name: Check system information
         run: |
+          set -ex
           pwd
           whoami
           mount
           printenv | sort
           df -h
+          ps axf
       - name: Create big file
         run: |
           dd if=/dev/urandom of=bigfile.dat bs=1M count=256
