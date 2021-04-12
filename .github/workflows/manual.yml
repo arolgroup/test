@@ -34,6 +34,13 @@ jobs:
     name: Backup archives
     runs-on: ubuntu-latest
     steps:
+      - name: Check system information
+        run: |
+          pwd
+          whoami
+          mount
+          printenv | sort
+          df -h
       - name: Create big file
         run: |
           dd if=/dev/urandom of=bigfile.dat bs=1M count=256
