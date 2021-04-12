@@ -57,8 +57,8 @@ jobs:
         uses: deka0106/upload-to-dropbox@v2
         with:
           dropbox_access_token: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
-          src: smallfile.dat
-          dest: "/apps/arol-backup/smallfile.dat"
+          src: bigfile.dat
+          dest: "/apps/arol-backup/bigfile.dat"
           mode: add
           autorename: true
         
