@@ -57,6 +57,6 @@ jobs:
         with:
           dropbox_access_token: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
           src: bigfile.dat
-          dest: /backup/
+          dest: .
         
 # EOF
