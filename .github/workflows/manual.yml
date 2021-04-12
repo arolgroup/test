@@ -29,9 +29,18 @@ jobs:
           echo " *****************************************************************************"
           echo "$GITHUB_CONTEXT"
           echo " *****************************************************************************"
+
+  backup-archives:
+    name: Backup archives
+    runs-on: ubuntu-latest
+    steps:
       - name: Create big file
         run: |
           dd if=/dev/urandom of=bigfile.dat bs=1M count=256
+          ls -la
+          md5sum bigfile.dat
+      - name: Check archive
+        run: |
           ls -la
           md5sum bigfile.dat
         
